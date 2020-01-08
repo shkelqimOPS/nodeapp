@@ -1,0 +1,56 @@
+version: "2.2"
+
+services:
+  nginx:
+    container_name: nginx
+    image: shkelqim/nginx
+    build:
+      context: .
+      dockerfile: .docker/nginx.${APP_ENV}.dockerfile
+    depends_on:
+      - node
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - backend
+
+  node:
+    container_name: node
+    image: shkelqim/node
+    build: 
+      context: .
+      dockerfile: .docker/node-codewithdan.${APP_ENV}.dockerfile
+    ports:
+      - "8080"
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - backend
+
+  mongo:
+    container_name: mongo
+    image: shkelqim/mongo
+    build:
+      context: .
+      dockerfile: .docker/mongo.dockerfile
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+
+  redis:
+    container_name: redis
+    image: shkelqim/redis
+    build:
+      context: .
+      dockerfile: .docker/redis.${APP_ENV}.dockerfile
+    ports:
+      - "6379"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
