@@ -39,7 +39,7 @@ APP_ENV=production as mentioned in the compose file.
     Note: `password` is being used here purely to keep things very simple for the demo. Use strong passwords for a "real" setup!!!!
 
 1. Run `kubectl create -f .k8s` to create the Kubernetes Services, Deployments, Pods, etc.
-1. Once the deployments are applied several pods will be created. 
+1. Once the deployments are applied several pods will be created.  
 1. Open the browser and go to http://localhost. Read note below.
 
 NOTE: You'll need to wait since it'll take a little bit for the DB to start up. Once the Pods are ready you should see data in the app (hit refresh if needed).
