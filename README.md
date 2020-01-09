@@ -60,5 +60,5 @@ To expose a specific port for localhost for the nginx Pod, get the name of the `
 
 `sudo kubectl port-forward [name-of-nginx-pod] 8080:80`
 
-Note that sudo is needed to enable port 80 in this case on Mac. You can choose a different port as well such as 8081:80. 
+Note that sudo is needed to enable port 80 in this case on Mac. You can choose a different port as well such as 8081:80.  
 
